@@ -50,7 +50,7 @@ cloudBees {
     archiveType = 'jar'
 //    archiveFile = springBootJarFile
     archiveFile = springBootJarFile
-    deltaDeploy = true
+    deltaDeploy = false
 //    parameters = [containerType: "java", 'runtime.class': mainClassName, 'runtime.classpath': cloudBeesClasspath]
     parameters = [containerType: "java", 'runtime.class': springBootJarLauncherClassName, 'runtime.classpath': '']
 }
