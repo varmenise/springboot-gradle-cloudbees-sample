@@ -39,7 +39,7 @@ allJars.add(file("build/libs/gs-spring-boot-0.1.0.jar"))
 def cloudBeesClasspath = allJars.collect{ "lib/" + it.name }.join(':')
 
 def springBootJarLauncherClassName = "org.springframework.boot.loader.JarLauncher"
-def springBootJarFile = file("build/libs/gs-spring-boot-0.1.0.jar")
+def springBootJarFile = jar.archivePath
 
 cloudBees {
     apiKey = cloudbeesApiKey
