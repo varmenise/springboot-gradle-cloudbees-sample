@@ -1,9 +1,14 @@
 SpringBoot CloudBees Hello
 ==========================
 
-image:https://jenkins-ci.org/sites/default/files/images/CloudBees-logo.thumbnail.png[CloudBees Logo]
+[.float-group]
+--
+[.left]
+image:springboot-icon.png[Spring Boot, 50, 50 link="http://projects.spring.io/spring-boot", role="left"]
 
-(Is there a Spring or Spring Boot logo I can link to?)
+[.left]
+image:https://jenkins-ci.org/sites/default/files/images/CloudBees-logo.thumbnail.png[CloudBees, link="http://www.cloudbees.com/", role="left"]
+--
 
 This sample project demonstrates how to build and deploy a http://projects.spring.io/spring-boot/[Spring Boot] application to http://www.cloudbees.com/[CloudBees].  It's based upon the sample application in the Spring Boot http://spring.io/guides/gs/spring-boot/[Getting Started Guide] but includes several changes to allow easy deployment to CloudBees.
 
