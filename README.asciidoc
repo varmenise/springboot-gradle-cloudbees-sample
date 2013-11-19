@@ -3,7 +3,7 @@ SpringBoot CloudBees Hello
 
 image:doc/img/springboot-icon.png[Spring Boot, 50, 50, link="http://projects.spring.io/spring-boot"] image:https://jenkins-ci.org/sites/default/files/images/CloudBees-logo.thumbnail.png[CloudBees, link="http://www.cloudbees.com/"]
 
-This sample project demonstrates how to build and deploy a http://projects.spring.io/spring-boot/[Spring Boot] application to http://www.cloudbees.com/[CloudBees].  It's based upon the sample application in the Spring Boot http://spring.io/guides/gs/spring-boot/[Getting Started Guide] but includes several changes to allow easy deployment to CloudBees.
+This sample project demonstrates how to build and deploy a http://projects.spring.io/spring-boot/[Spring Boot] application to http://www.cloudbees.com/[CloudBees].  It's based upon the sample application in the Spring Boot http://spring.io/guides/gs/spring-boot/[Getting Started Guide] but includes several changes to allow easy deployment to CloudBees.  It uses the https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin[Spring Boot Gradle Plugin].
 
 == Changes for CloudBees
 
