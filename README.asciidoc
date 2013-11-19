@@ -36,6 +36,10 @@ The app will be built as a http://projects.spring.io/spring-boot/docs/spring-boo
 Note::
 Although the app is built as a WAR, it is actually deplyed to CloudBees as a JAR file.  Since CloudBees is running the Spring Boot +WarLauncher+ class it doesn't really notice that the JAR is actually a WAR.
 
+== Live Demo
+
+Not very exciting, but the app is running at http://sb-hello.cmt.cloudbees.net[sb-hello.cmt.cloudbees.net] (a CloudBees free instance, so give it a minute to start up)
+
 == Not currently implemented/demonstrated
 
 Spring Boot supports a variety of build/deployment options that can conceivably be used with CloudBees. We'll look at each of these options in terms of usefulness and implementation in each subsection.
@@ -58,15 +62,16 @@ The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin wh
 
 == TODO
 
-* More testing of +deployDelta = true+
 * Get patch to Gradle CloudBees Plugin merged into upstream and available in Maven Central
-* Add some static content to the WAR (right now demo is REST only)
 * Gradle task for local run (replacing +java -jar+ shell command)
 * Support for CloudBees load-balancing.
 * Spock unit tests
 * Modify +build.gradle+ to provide option to deploy as a WAR to CloudBees servlet container
 
+== DONE
 
+* More testing of +deployDelta = true+
+* Add some static content to the WAR (right now demo is REST only)
 
 
 
