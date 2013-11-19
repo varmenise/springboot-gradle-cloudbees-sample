@@ -36,7 +36,7 @@ cloudBees {
     appId = 'cmt/jar'
     archiveType = 'jar'
     archiveFile = war.archivePath
-    deltaDeploy = false
+    deltaDeploy = true
     parameters = [containerType: "java", 'runtime.class': springBootWarLauncherClassName]
 }
 
