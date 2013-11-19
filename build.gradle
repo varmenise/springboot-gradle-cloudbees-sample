@@ -28,6 +28,11 @@ dependencies {
     testCompile("junit:junit:4.11")
 }
 
+springBoot {
+    mainClass = "com.msgilligan.springboot.hello.Application"
+    backupSource = true
+}
+
 def springBootWarLauncherClassName = "org.springframework.boot.loader.WarLauncher"
 
 cloudBees {
