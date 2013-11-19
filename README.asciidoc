@@ -5,7 +5,6 @@ image:doc/img/springboot-icon.png[Spring Boot, 50, 50, link="http://projects.spr
 
 This sample project demonstrates how to build and deploy a http://projects.spring.io/spring-boot/[Spring Boot] application to http://www.cloudbees.com/[CloudBees].  It's based upon the sample application in the Spring Boot http://spring.io/guides/gs/spring-boot/[Getting Started Guide] but includes several changes to allow easy deployment to CloudBees.
 
-
 == Changes for CloudBees
 
 . A +ServerProperties+ bean is created to set the Servlet container port to +System.getProperty("app.port")+
@@ -18,7 +17,7 @@ Note:: Until the pull request is accepted (and a new version is released) or I r
 To run the sample app locally:
 
     gradle build
-    java -jar build/libs/gs-spring-boot-0.1.0.jar
+    java -jar build/libs/hello-0.1.0.war
 
 The app will be built and running locally at http://localhost:8080/
 
@@ -27,20 +26,39 @@ The app will be built and running locally at http://localhost:8080/
 To deploy to CloudBees:
 
 . Edit +build.gradle+ and set your CloudBees +appId+
-. Make soure your https://github.com/bmuschko/gradle-cloudbees-plugin#setting-api-credentials[CloudBees API Credentials are setup]
+. Make sure your https://github.com/bmuschko/gradle-cloudbees-plugin#setting-api-credentials[CloudBees API Credentials are setup]
 . Run the following command:
 
     gradle cloudBeesAppDeployArchive
 
-The app will be built as a http://projects.spring.io/spring-boot/docs/spring-boot-tools/spring-boot-loader/README.html[Spring Boot JAR] and deployed to CloudBees.
+The app will be built as a http://projects.spring.io/spring-boot/docs/spring-boot-tools/spring-boot-loader/README.html[Spring Boot WAR] and deployed to CloudBees.
 
-== Deploying as a ZIP
-
-The app can also be deployed to CloudBees as a zipfile containg the simple app JAR and all the dependency jars. This is supported by the modified Gradle CloudBees Plugin but needs minor changes to +build.gradle+ to correctly create the zipfile and matching +classpath+ parameter.  TBD.
+Note::
+Although the app is built as a WAR, it is actually deplyed to CloudBees as a JAR file.  Since CloudBees is running the Spring Boot +WarLauncher+ class it doesn't really notice that the JAR is actually a WAR.
 
 == Deploying as a WAR
 
-For completeness it would be nice to also be able to build a WAR and deploy it to CloudBees using one of the built-in servlet containers.  Contributions welcome.
+For completeness it would be nice to also be able to deploy the war to CloudBees using one of the built-in servlet containers.  I don't think trying/doing this should be too hard.  Contributions welcome.
+
+== Deploying as a ZIP
+
+The app could also be deployed to CloudBees as a zipfile containg the simple app JAR and all the dependency jars. This is supported by the modified Gradle CloudBees Plugin but needs minor changes to +build.gradle+ to correctly create the zipfile and matching +classpath+ parameter.  I'm not sure if there is any benefit to this approach.
+
+== Building a Spring Boot JAR
+
+If you want to experiment with the executable JAR format of Spring Boot (to compare with the WAR format) you can still build a JAR as follows:
+
+    gradle jar assemble
+
+The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin which will convert the +hello+ JAR file along with the +hello+ WAR file if both are present.
+
+== TODO
+
+* More testing of +deployDelta = true+
+* Modify build.gradle to provide option to deploy as a WAR to CloudBees servlet container
+* Add some static content to the WAR (right now demo is REST only)
+
+
 
 
 
