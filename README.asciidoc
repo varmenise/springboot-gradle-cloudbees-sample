@@ -3,7 +3,7 @@ SpringBoot CloudBees Hello
 
 image:doc/img/springboot-icon.png[Spring Boot, 50, 50, link="http://projects.spring.io/spring-boot"] image:https://jenkins-ci.org/sites/default/files/images/CloudBees-logo.thumbnail.png[CloudBees, link="http://www.cloudbees.com/"]
 
-This sample project demonstrates how to build and deploy a http://projects.spring.io/spring-boot/[Spring Boot] application to http://www.cloudbees.com/[CloudBees].  It's based upon the sample application in the Spring Boot http://spring.io/guides/gs/spring-boot/[Getting Started Guide] but includes several changes to allow easy deployment to CloudBees.  It uses the https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin[Spring Boot Gradle Plugin].
+This sample project demonstrates how to build and deploy a http://projects.spring.io/spring-boot/[Spring Boot] application to http://www.cloudbees.com/[CloudBees].  It's based upon the sample application in the Spring Boot http://spring.io/guides/gs/spring-boot/[Getting Started Guide] but includes several changes to allow easy deployment to CloudBees.  It uses the https://github.com/spring-projects/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin[Spring Boot Gradle Plugin] to build an "executable" WAR file that can be deployed to the CloudBees http://wiki.cloudbees.com/bin/view/RUN/Java+Container[JVM Runtime Container].
 
 == Changes for CloudBees
 
@@ -36,13 +36,13 @@ The app will be built as a http://projects.spring.io/spring-boot/docs/spring-boo
 Note::
 Although the app is built as a WAR, it is actually deplyed to CloudBees as a JAR file.  Since CloudBees is running the Spring Boot +WarLauncher+ class it doesn't really notice that the JAR is actually a WAR.
 
-== Not currently implemented/demostrated
+== Not currently implemented/demonstrated
 
-Spring Boot supports a variety of build/deployment options that can conceivably be used with CloudBees.
+Spring Boot supports a variety of build/deployment options that can conceivably be used with CloudBees. We'll look at each of these options in terms of usefulness and implementation in each subsection.
 
 === Deploying as a WAR
 
-For completeness it would be nice to also be able to deploy the WAR to CloudBees using one of the built-in servlet containers (e.g. 'tomcat', 'jboss', etc.). I don't think trying/doing this should be too hard.  It might be nice to use Spring Boot WAR during development, but deploy a traditional war in production. Contributions welcome.
+For completeness it would be nice to also be able to deploy the WAR to CloudBees using one of the built-in servlet containers (e.g. +tomcat+, +jboss+, etc.). I don't think trying/doing this should be too hard.  It might be nice to use Spring Boot WAR during development, but deploy a traditional war in production. _Contributions welcome_.
 
 === Deploying as a ZIP
 
@@ -61,9 +61,10 @@ The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin wh
 * More testing of +deployDelta = true+
 * Get patch to Gradle CloudBees Plugin merged into upstream and available in Maven Central
 * Add some static content to the WAR (right now demo is REST only)
-* Support for CloudBees loadbalancing.
+* Gradle task for local run (replacing +java -jar+ shell command)
+* Support for CloudBees load-balancing.
 * Spock unit tests
-* Modify build.gradle to provide option to deploy as a WAR to CloudBees servlet container
+* Modify +build.gradle+ to provide option to deploy as a WAR to CloudBees servlet container
 
 
 
