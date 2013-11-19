@@ -9,18 +9,12 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'spring-boot'
 apply plugin: 'cloudbees'
 
+archivesBaseName = 'hello'
 version =  '0.1.0'
-
-jar {
-    baseName = 'gs-spring-boot'
-    version =  project.version
-}
-
-mainClassName = "com.msgilligan.springboot.hello.Application"
 
 repositories {
     mavenCentral()
@@ -34,35 +28,20 @@ dependencies {
     testCompile("junit:junit:4.11")
 }
 
-def allJars = configurations.compile.files.collect()
-allJars.add(file("build/libs/gs-spring-boot-0.1.0.jar"))
-def cloudBeesClasspath = allJars.collect{ "lib/" + it.name }.join(':')
-
-def springBootJarLauncherClassName = "org.springframework.boot.loader.JarLauncher"
-def springBootJarFile = jar.archivePath
+def springBootWarLauncherClassName = "org.springframework.boot.loader.WarLauncher"
 
 cloudBees {
     apiKey = cloudbeesApiKey
     apiSecret = cloudbeesApiSecret
-//    appId = 'cmt/btc'
     appId = 'cmt/jar'
-//    archiveType = 'zip'
     archiveType = 'jar'
-//    archiveFile = springBootJarFile
-    archiveFile = springBootJarFile
+    archiveFile = war.archivePath
     deltaDeploy = false
-//    parameters = [containerType: "java", 'runtime.class': mainClassName, 'runtime.classpath': cloudBeesClasspath]
-    parameters = [containerType: "java", 'runtime.class': springBootJarLauncherClassName]
+    parameters = [containerType: "java", 'runtime.class': springBootWarLauncherClassName]
 }
 
+cloudBeesAppDeployArchive.dependsOn assemble
 cloudBeesAppDeployArchive.message = project.version
 
-cloudBeesAppDeployArchive.dependsOn assemble
 
-//task zipBees(type: Zip, dependsOn: installApp) {
-//    destinationDir  file("${rootDir}/build")
-//    from "build/install/spring-boot-gradle"
-//    baseName 'gs-spring-boot'
-//    version = '0.1.0'
-//}
 
