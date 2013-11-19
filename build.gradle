@@ -38,7 +38,7 @@ def springBootWarLauncherClassName = "org.springframework.boot.loader.WarLaunche
 cloudBees {
     apiKey = cloudbeesApiKey
     apiSecret = cloudbeesApiSecret
-    appId = 'cmt/jar'
+    appId = 'cmt/sb-hello'
     archiveType = 'jar'
     archiveFile = war.archivePath
     deltaDeploy = true
