@@ -36,27 +36,34 @@ The app will be built as a http://projects.spring.io/spring-boot/docs/spring-boo
 Note::
 Although the app is built as a WAR, it is actually deplyed to CloudBees as a JAR file.  Since CloudBees is running the Spring Boot +WarLauncher+ class it doesn't really notice that the JAR is actually a WAR.
 
-== Deploying as a WAR
+== Not currently implemented/demostrated
 
-For completeness it would be nice to also be able to deploy the war to CloudBees using one of the built-in servlet containers.  I don't think trying/doing this should be too hard.  Contributions welcome.
+Spring Boot supports a variety of build/deployment options that can conceivably be used with CloudBees.
 
-== Deploying as a ZIP
+=== Deploying as a WAR
+
+For completeness it would be nice to also be able to deploy the WAR to CloudBees using one of the built-in servlet containers (e.g. 'tomcat', 'jboss', etc.). I don't think trying/doing this should be too hard.  It might be nice to use Spring Boot WAR during development, but deploy a traditional war in production. Contributions welcome.
+
+=== Deploying as a ZIP
 
 The app could also be deployed to CloudBees as a zipfile containg the simple app JAR and all the dependency jars. This is supported by the modified Gradle CloudBees Plugin but needs minor changes to +build.gradle+ to correctly create the zipfile and matching +classpath+ parameter.  I'm not sure if there is any benefit to this approach.
 
-== Building a Spring Boot JAR
+=== Building a Spring Boot JAR
 
 If you want to experiment with the executable JAR format of Spring Boot (to compare with the WAR format) you can still build a JAR as follows:
 
     gradle jar assemble
 
-The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin which will convert the +hello+ JAR file along with the +hello+ WAR file if both are present.
+The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin which will convert the +hello+ JAR file along with the +hello+ WAR file if both are present.  I don't know of any tangible benefit that a JAR offers over a WAR. If you have, please let me now.
 
 == TODO
 
 * More testing of +deployDelta = true+
-* Modify build.gradle to provide option to deploy as a WAR to CloudBees servlet container
+* Get patch to Gradle CloudBees Plugin merged into upstream and available in Maven Central
 * Add some static content to the WAR (right now demo is REST only)
+* Support for CloudBees loadbalancing.
+* Spock unit tests
+* Modify build.gradle to provide option to deploy as a WAR to CloudBees servlet container
 
 
 
