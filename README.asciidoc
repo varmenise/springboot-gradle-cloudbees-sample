@@ -8,9 +8,9 @@ This sample project demonstrates how to build and deploy a http://projects.sprin
 == Changes for CloudBees
 
 . A +ServerProperties+ bean is created to set the Servlet container port to +System.getProperty("app.port")+
-. The +build.gradle+ file is configured for deployment to CloudBees using a https://github.com/bmuschko/gradle-cloudbees-plugin/pull/2[modified] version of the https://github.com/bmuschko/gradle-cloudbees-plugin[Gradle CloudBees Plugin]
+. The +build.gradle+ file is configured for deployment to CloudBees using a new version (0.1.1) of the https://github.com/CloudBees-community/gradle-cloudbees-plugin[Gradle CloudBees Plugin]
 
-Note:: Until the pull request is accepted (and a new version is released) or I release the modified version to a public Maven repository, you'll need to check out the source for that branch, build the updated plugiin locally and install into your local Maven repo.
+Note:: https://bintray.com/msgilligan/maven/gradle-cloudbees-plugin/0.1.1[Version 0.1.1] of the gradle-cloudbees-plugin is not an official release from CloudBees, and is being pulled from the https://bintray.com/msgilligan/maven[msgilligan/maven] repo on Bintray. +build.gradle+ for this project is configured accordingly.
 
 == Running Locally
 
@@ -62,7 +62,7 @@ The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin wh
 
 == TODO
 
-* Get patch to Gradle CloudBees Plugin merged into upstream and available in Maven Central
+* Get updated Gradle CloudBees Plugin released on Maven Central (or other?)
 * Gradle task for local run (replacing +java -jar+ shell command)
 * Support for CloudBees load-balancing.
 * Spock unit tests
@@ -70,6 +70,7 @@ The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin wh
 
 == DONE
 
+* Merged plugin mods into +master+ in the Gradle CloudBees Plugin GitHub project
 * More testing of +deployDelta = true+
 * Add some static content to the WAR (right now demo is REST only)
 
