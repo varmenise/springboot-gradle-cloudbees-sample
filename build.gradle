@@ -42,7 +42,7 @@ task deploy(dependsOn: cloudBeesAppDeployArchive)
 cloudBees {
     apiKey = cloudbeesApiKey
     apiSecret = cloudbeesApiSecret
-    appId = 'cmt/sb-hello'
+    appId = 'community/springboot-sample'
     archiveType = 'jar'
     archiveFile = war.archivePath
     deltaDeploy = true
