@@ -65,7 +65,6 @@ The +assemble+ task will run the +repackage+ task of the +spring-boot+ plugin wh
 * Release Gradle CloudBees Plugin on Maven Central (See https://github.com/CloudBees-community/gradle-cloudbees-plugin/issues/3[Plugin Issue 3])
 * Gradle task for local run (replacing +java -jar+ shell command) (Looks like this will be in Spring Boot 0.5.0.M7)
 * Support for CloudBees load-balancing.
-* Modify +build.gradle+ to provide option to deploy as a WAR to CloudBees servlet container
 
 == DONE
 
