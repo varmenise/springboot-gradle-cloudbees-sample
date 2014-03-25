@@ -5,7 +5,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC3")
+        def sbBuildScriptVersion = "1.0.0.RC5"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${sbBuildScriptVersion}")
         classpath 'org.gradle.api.plugins:gradle-cloudbees-plugin:0.1.1'
     }
 }
@@ -13,6 +14,8 @@ buildscript {
 apply plugin: 'war'
 apply plugin: 'spring-boot'
 apply plugin: 'cloudbees'
+
+def springBootVersion = "1.0.0.RC5"
 
 archivesBaseName = 'hello'
 version =  '0.1.1'
@@ -25,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:1.0.0.RC3"
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     testCompile("junit:junit:4.11")
 }
 
