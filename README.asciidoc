@@ -12,11 +12,15 @@ This sample project demonstrates how to build and deploy a http://projects.sprin
 
 Note:: https://bintray.com/msgilligan/maven/gradle-cloudbees-plugin/0.1.1[Version 0.1.1] of the gradle-cloudbees-plugin is not an official release from CloudBees, and is being pulled from the https://bintray.com/msgilligan/maven[msgilligan/maven] repo on Bintray. +build.gradle+ for this project is configured accordingly.
 
+== Run Unit and Integration Tests
+
+    ./gradlew test
+
 == Running Locally
 
 To run the sample app locally:
 
-    gradle bootRun
+    ./gradlew bootRun
 
 The app will be built and running locally at http://localhost:8080/
 
@@ -28,7 +32,7 @@ To deploy to CloudBees:
 . Make sure your https://github.com/bmuschko/gradle-cloudbees-plugin#setting-api-credentials[CloudBees API Credentials are setup]
 . Run the following command:
 
-    gradle cloudBeesAppDeployArchive
+    ./gradlew cloudBeesAppDeployArchive
 
 The app will be built as a http://projects.spring.io/spring-boot/docs/spring-boot-tools/spring-boot-loader/README.html[Spring Boot WAR] and deployed to CloudBees.
 
