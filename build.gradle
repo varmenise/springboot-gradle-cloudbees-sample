@@ -45,8 +45,6 @@ def springBootWarLauncherClassName = "org.springframework.boot.loader.WarLaunche
 task deploy(dependsOn: cloudBeesAppDeployArchive)
 
 cloudBees {
-    apiKey = cloudbeesApiKey
-    apiSecret = cloudbeesApiSecret
     appId = 'valentina/gradle-springboot'
     archiveType = 'war'
     archiveFile = war.archivePath
